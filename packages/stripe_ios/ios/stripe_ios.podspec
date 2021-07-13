@@ -15,7 +15,6 @@ A new flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'StripeOshima', :podspec => "https://github.com/oshima819/stripe-ios/blob/master/Stripe.podspec"
   s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice.
