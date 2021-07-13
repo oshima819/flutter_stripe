@@ -568,6 +568,7 @@ class _$CardDataTearOff {
       String? name,
       String? funding,
       String? last4,
+      String? stripeID,
       Address? address}) {
     return _CardData(
       brand: brand,
@@ -578,6 +579,7 @@ class _$CardDataTearOff {
       name: name,
       funding: funding,
       last4: last4,
+      stripeID: stripeID,
       address: address,
     );
   }
@@ -616,6 +618,9 @@ mixin _$CardData {
   /// last four digits of the card.
   String? get last4 => throw _privateConstructorUsedError;
 
+  /// stripeID of the card.
+  String? get stripeID => throw _privateConstructorUsedError;
+
   /// Address of the cardholder
   Address? get address => throw _privateConstructorUsedError;
 
@@ -638,6 +643,7 @@ abstract class $CardDataCopyWith<$Res> {
       String? name,
       String? funding,
       String? last4,
+      String? stripeID,
       Address? address});
 
   $AddressCopyWith<$Res>? get address;
@@ -661,6 +667,7 @@ class _$CardDataCopyWithImpl<$Res> implements $CardDataCopyWith<$Res> {
     Object? name = freezed,
     Object? funding = freezed,
     Object? last4 = freezed,
+    Object? stripeID = freezed,
     Object? address = freezed,
   }) {
     return _then(_value.copyWith(
@@ -696,6 +703,10 @@ class _$CardDataCopyWithImpl<$Res> implements $CardDataCopyWith<$Res> {
           ? _value.last4
           : last4 // ignore: cast_nullable_to_non_nullable
               as String?,
+      stripeID: stripeID == freezed
+          ? _value.stripeID
+          : stripeID // ignore: cast_nullable_to_non_nullable
+              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -729,6 +740,7 @@ abstract class _$CardDataCopyWith<$Res> implements $CardDataCopyWith<$Res> {
       String? name,
       String? funding,
       String? last4,
+      String? stripeID,
       Address? address});
 
   @override
@@ -754,6 +766,7 @@ class __$CardDataCopyWithImpl<$Res> extends _$CardDataCopyWithImpl<$Res>
     Object? name = freezed,
     Object? funding = freezed,
     Object? last4 = freezed,
+    Object? stripeID = freezed,
     Object? address = freezed,
   }) {
     return _then(_CardData(
@@ -789,6 +802,10 @@ class __$CardDataCopyWithImpl<$Res> extends _$CardDataCopyWithImpl<$Res>
           ? _value.last4
           : last4 // ignore: cast_nullable_to_non_nullable
               as String?,
+      stripeID: stripeID == freezed
+          ? _value.stripeID
+          : stripeID // ignore: cast_nullable_to_non_nullable
+              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -810,6 +827,7 @@ class _$_CardData implements _CardData {
       this.name,
       this.funding,
       this.last4,
+      this.stripeID,
       this.address});
 
   factory _$_CardData.fromJson(Map<String, dynamic> json) =>
@@ -849,12 +867,16 @@ class _$_CardData implements _CardData {
   final String? last4;
   @override
 
+  /// stripeID of the card.
+  final String? stripeID;
+  @override
+
   /// Address of the cardholder
   final Address? address;
 
   @override
   String toString() {
-    return 'CardData(brand: $brand, country: $country, currency: $currency, expYear: $expYear, expMonth: $expMonth, name: $name, funding: $funding, last4: $last4, address: $address)';
+    return 'CardData(brand: $brand, country: $country, currency: $currency, expYear: $expYear, expMonth: $expMonth, name: $name, funding: $funding, last4: $last4, stripeID: $stripeID, address: $address)';
   }
 
   @override
@@ -882,6 +904,9 @@ class _$_CardData implements _CardData {
                     .equals(other.funding, funding)) &&
             (identical(other.last4, last4) ||
                 const DeepCollectionEquality().equals(other.last4, last4)) &&
+            (identical(other.stripeID, stripeID) ||
+                const DeepCollectionEquality()
+                    .equals(other.stripeID, stripeID)) &&
             (identical(other.address, address) ||
                 const DeepCollectionEquality().equals(other.address, address)));
   }
@@ -897,6 +922,7 @@ class _$_CardData implements _CardData {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(funding) ^
       const DeepCollectionEquality().hash(last4) ^
+      const DeepCollectionEquality().hash(stripeID) ^
       const DeepCollectionEquality().hash(address);
 
   @JsonKey(ignore: true)
@@ -920,6 +946,7 @@ abstract class _CardData implements CardData {
       String? name,
       String? funding,
       String? last4,
+      String? stripeID,
       Address? address}) = _$_CardData;
 
   factory _CardData.fromJson(Map<String, dynamic> json) = _$_CardData.fromJson;
@@ -956,6 +983,10 @@ abstract class _CardData implements CardData {
 
   /// last four digits of the card.
   String? get last4 => throw _privateConstructorUsedError;
+  @override
+
+  /// stripeID of the card.
+  String? get stripeID => throw _privateConstructorUsedError;
   @override
 
   /// Address of the cardholder
