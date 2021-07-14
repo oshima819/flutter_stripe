@@ -99,7 +99,7 @@ class StripeAndroidPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                     promise = Promise(result),
                     params = call.requiredArgument("params")
             )
-            "createCard" -> stripeSdk.createCardToken(
+            "createCard" -> stripeSdk.createCard(
                     promise = Promise(result),
                     params = call.requiredArgument("params")
             )
