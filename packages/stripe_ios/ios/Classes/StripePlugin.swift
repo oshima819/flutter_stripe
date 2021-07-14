@@ -71,6 +71,8 @@ public class StripePlugin: StripeSdk, FlutterPlugin {
             return createPaymentMethod(call, result: result)
         case "createToken":
             return createToken(call, result: result)
+        case "createCard":
+            return createCard(call, result: result)
         default:
             result(FlutterMethodNotImplemented)
         }
@@ -293,6 +295,17 @@ extension  StripePlugin {
             return
         }
         createToken(params: params,
+                    resolver: resolver(for: result),
+                    rejecter: rejecter(for: result))
+    }
+
+    public func createCard(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+        guard let arguments = call.arguments as? FlutterMap,
+        let params = arguments["params"] as? NSDictionary else {
+            result(FlutterError.invalidParams)
+            return
+        }
+        createCard(params: params,
                     resolver: resolver(for: result),
                     rejecter: rejecter(for: result))
     }

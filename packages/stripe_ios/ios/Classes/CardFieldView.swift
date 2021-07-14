@@ -262,7 +262,6 @@ class CardFieldView: NSObject, FlutterPlatformView, STPPaymentCardTextFieldDeleg
            "complete": textField.isValid,
            "brand": Mappers.mapCardBrand(brand),
            "last4": textField.cardParams.last4 ?? "",
-           "stripeID": textField.cardParams.stripeID ?? ""
        ]
        if (cardField.postalCodeEntryEnabled) {
            cardData["postalCode"] = textField.postalCode ?? ""
