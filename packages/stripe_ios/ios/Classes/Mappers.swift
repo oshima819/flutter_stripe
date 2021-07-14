@@ -80,7 +80,7 @@ class Mappers {
             "expMonth": card?.expMonth ?? NSNull(),
             "expYear": card?.expYear ?? NSNull(),
             "last4": card?.last4 ?? NSNull(),
-            "stripeID": card?.stripeID ?? NSNull(),
+            "id": card?.stripeID ?? NSNull(),
             "funding": mapFromFunding(card?.funding) ?? NSNull(),
             "name": card?.name ?? NSNull(),
             "address": mapFromAddress(address: card?.address)
