@@ -234,6 +234,9 @@ class MethodChannelStripe extends StripePlatform {
       final result = await _methodChannel.invokeMapMethod<String, dynamic>(
           'createCard', {'params': params.toJson()});
 
+      print("aaaaaa");
+      print(result);
+
       return CardData.fromJson(result.unfoldToNonNull());
     } on Exception catch (e) {
       throw StripeError<CreateCardError>(
