@@ -85,6 +85,12 @@ class CardData with _$CardData {
     /// stripeID of the card.
     String? stripeID,
 
+    /// stripeID of the card.
+    String? id,
+
+    /// stripeID of the card.
+    String? cardId,
+
     /// Address of the cardholder
     Address? address,
   }) = _CardData;

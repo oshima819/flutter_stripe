@@ -100,6 +100,8 @@ _$_CardData _$_$_CardDataFromJson(Map<String, dynamic> json) {
     funding: json['funding'] as String?,
     last4: json['last4'] as String?,
     stripeID: json['stripeID'] as String?,
+    id: json['id'] as String?,
+    cardId: json['cardId'] as String?,
     address: json['address'] == null
         ? null
         : Address.fromJson(json['address'] as Map<String, dynamic>),
@@ -117,6 +119,8 @@ Map<String, dynamic> _$_$_CardDataToJson(_$_CardData instance) =>
       'funding': instance.funding,
       'last4': instance.last4,
       'stripeID': instance.stripeID,
+      'id': instance.id,
+      'cardId': instance.cardId,
       'address': instance.address?.toJson(),
     };
 
