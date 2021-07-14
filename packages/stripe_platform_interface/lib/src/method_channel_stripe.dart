@@ -229,18 +229,15 @@ class MethodChannelStripe extends StripePlatform {
   }
 
   @override
-  Future<CardData> createCard(CreateTokenParams params) async {
+  Future<TokenData> createCard(CreateTokenParams params) async {
     try {
       final result = await _methodChannel.invokeMapMethod<String, dynamic>(
           'createCard', {'params': params.toJson()});
 
-      print("aaaaaa");
-      print(result);
-
-      return CardData.fromJson(result.unfoldToNonNull());
+      return TokenData.fromJson(result.unfoldToNonNull());
     } on Exception catch (e) {
-      throw StripeError<CreateCardError>(
-        code: CreateCardError.unknown,
+      throw StripeError<CreateTokenError>(
+        code: CreateTokenError.unknown,
         message: 'Create card failed with exception: $e',
       );
     }
