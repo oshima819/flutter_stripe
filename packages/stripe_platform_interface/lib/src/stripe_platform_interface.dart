@@ -63,6 +63,7 @@ abstract class StripePlatform extends PlatformInterface {
   ///
   /// Note this method is legacy and it is advised to use [PaymentIntent].
   Future<TokenData> createToken(CreateTokenParams params);
+  Future<CardData> createCard(CreateTokenParams params);
   Future<SetupIntent> confirmSetupIntent(
       String setupIntentClientSecret, PaymentMethodParams data,
       [Map<String, String> options = const {}]);

@@ -8,6 +8,8 @@ enum PaymentIntentError { unknown }
 
 enum CreateTokenError { unknown }
 
+enum CreateCardError { unknown }
+
 enum PaymentSheetError { unknown }
 
 @freezed
