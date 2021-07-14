@@ -159,7 +159,7 @@ class Stripe {
   /// instead.
   /// /// Throws an [StripeError] in case createCard fails.
 
-  Future<CardData> createCard(CreateTokenParams params) async {
+  Future<TokenData> createCard(CreateTokenParams params) async {
     await _awaitForSettings();
     try {
       final tokenData = await _platform.createCard(params);
