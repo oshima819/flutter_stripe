@@ -222,6 +222,7 @@ internal fun mapFromCard(card: Card?): WritableMap? {
   }
 
   cardMap.putString("last4", card.last4)
+
   cardMap.putString("funding", card.funding?.name)
   cardMap.putString("name", card.name)
 
