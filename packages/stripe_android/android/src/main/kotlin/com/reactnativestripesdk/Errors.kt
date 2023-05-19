@@ -17,6 +17,10 @@ enum class CreateTokenErrorType {
   Failed
 }
 
+enum class CreateCardErrorType {
+  Failed
+}
+
 enum class NextPaymentActionErrorType {
   Failed, Canceled, Unknown
 }

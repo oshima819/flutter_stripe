@@ -380,6 +380,38 @@ class StripeSdkModule(reactContext: ReactApplicationContext, cardFieldManager: S
   }
 
   @ReactMethod
+  fun createCard(params: ReadableMap, promise: Promise) {
+    val type = getValOr(params, "type", null)?.let {
+      if (it != "Card") {
+        promise.reject(CreateCardErrorType.Failed.toString(), "$it type is not supported yet")
+        return
+      }
+    }
+    val address = getMapOrNull(params, "address")
+    val instance = cardFieldManager.getCardViewInstance()
+    val cardParams = instance?.cardParams?.toParamMap() ?: run {
+      promise.reject(CreateCardErrorType.Failed.toString(), "Card details not complete")
+      return
+    }
+
+    val params = CardParams(
+            number = cardParams["number"] as String,
+            expMonth = cardParams["exp_month"] as Int,
+            expYear = cardParams["exp_year"] as Int,
+            cvc = cardParams["cvc"] as String,
+            address = mapToAddress(address),
+            name = getValOr(params, "name", null)
+    )
+    runBlocking {
+      val token = stripe.createCardToken(
+              cardParams = params,
+              stripeAccountId = stripeAccountId
+      )
+      promise.resolve(mapFromToken(token))
+    }
+  }
+
+  @ReactMethod
   fun createTokenForCVCUpdate(cvc: String, promise: Promise) {
     stripe.createCvcUpdateToken(
       cvc,

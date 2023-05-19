@@ -261,7 +261,7 @@ class CardFieldView: NSObject, FlutterPlatformView, STPPaymentCardTextFieldDeleg
            "expiryYear": textField.cardParams.expYear,
            "complete": textField.isValid,
            "brand": Mappers.mapCardBrand(brand),
-           "last4": textField.cardParams.last4 ?? ""
+           "last4": textField.cardParams.last4 ?? "",
        ]
        if (cardField.postalCodeEntryEnabled) {
            cardData["postalCode"] = textField.postalCode ?? ""

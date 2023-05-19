@@ -99,6 +99,10 @@ class StripeAndroidPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                     promise = Promise(result),
                     params = call.requiredArgument("params")
             )
+            "createCard" -> stripeSdk.createCard(
+                    promise = Promise(result),
+                    params = call.requiredArgument("params")
+            )
             /*"registerConfirmSetupIntentCallbacks" -> stripeSdk.registerConfirmSetupIntentCallbacks(
                     successCallback = Promise(result),
                     errorCallback = Promise(result),

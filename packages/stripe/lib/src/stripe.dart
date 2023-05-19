@@ -153,6 +153,22 @@ class Stripe {
     }
   }
 
+  /// Creates a single-use token that represents a credit card’s details.
+  ///
+  /// Tokens are considered legacy, use [PaymentMethod] and [PaymentIntent]
+  /// instead.
+  /// /// Throws an [StripeError] in case createCard fails.
+
+  Future<TokenData> createCard(CreateTokenParams params) async {
+    await _awaitForSettings();
+    try {
+      final tokenData = await _platform.createCard(params);
+      return tokenData;
+    } on StripeError catch (error) {
+      throw StripeError(message: error.message, code: error.message);
+    }
+  }
+
   /// Retrieves a [PaymentIntent] using the provided [clientSecret].
   ///
   /// Throws an [StripeError] in case retrieving the intent fails.

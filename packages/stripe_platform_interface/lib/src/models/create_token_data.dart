@@ -82,6 +82,9 @@ class CardData with _$CardData {
     /// last four digits of the card.
     String? last4,
 
+    /// stripeID of the card.
+    String? id,
+
     /// Address of the cardholder
     Address? address,
   }) = _CardData;
